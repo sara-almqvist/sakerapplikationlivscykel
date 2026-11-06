@@ -1,4 +1,4 @@
-const express = require(express);
+const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 
@@ -35,7 +35,7 @@ app.post('/login', (req, res) => {
 });
 app.get('/messages', (req, res) => {
   const msg = req.query.msg || 'Inget meddelande';
-  res.send('<h1>Dina meddelanden</h1><p>' + msg + '</p>'); //Risk för att användaren ändrar i URL-söksträngen och kan komma åt andra meddelanden som den inte ska ha tillgång till. Plus XSS-risk
+  res.send('<h1>Dina meddelanden</h1><p>' + msg + '</p>'); //Risk för XSS och att användaren ändrar i URL-söksträngen och kan komma åt andra meddelanden som den inte ska ha tillgång till.
 });
 
 // Starta servern (lokalt)
